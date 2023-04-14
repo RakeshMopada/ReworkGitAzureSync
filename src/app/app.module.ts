@@ -15,6 +15,7 @@ import { TestAPIService } from "./test-api/test-api.service";
 import { ScreenAOverviewComponent } from "./screen-a-overview/screen-a-overview.component";
 import { ScreenBLotComponent } from "./screen-b-lot/screen-b-lot.component";
 import { ScreenCDetailsComponent } from './screen-c-details/screen-c-details.component';
+import { ScreenDAssignmentComponent } from './screen-d-assignment/screen-d-assignment.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ScreenCDetailsComponent } from './screen-c-details/screen-c-details.com
     ScreenAOverviewComponent,
     ScreenBLotComponent,
     ScreenCDetailsComponent,
+    ScreenDAssignmentComponent,
   ],
   imports: [
     BrowserModule,
