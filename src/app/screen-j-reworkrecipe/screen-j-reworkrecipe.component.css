@@ -1,0 +1,26 @@
+#primary-action-two {
+  background-color: #2596be;
+  color: rgb(85, 85, 85);
+  border-color: #2596be;
+  width: 60%;
+  border-width: 1px;
+  margin-bottom: 20%;
+  padding: 1%;
+  color: white;
+  font-weight: lighter;
+}
+#delete-button {
+  background-color: white;
+  color: rgb(85, 85, 85);
+  border-color: rgb(85, 85, 85);
+  width: 60%;
+  font-weight: lighter;
+  border-width: 1px;
+  margin-bottom: 10%;
+}
+body {
+  background-color: rgba(240, 240, 240, 255);
+  zoom: 100%;
+  max-zoom: 100%;
+  min-zoom: 50%;
+}

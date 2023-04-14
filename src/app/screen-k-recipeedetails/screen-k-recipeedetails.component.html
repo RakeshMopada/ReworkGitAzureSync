@@ -1,0 +1,166 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        K-Recipe Details
+      </h3>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br />
+  <div class="row-padding" style="display: inline">
+    <div class="one column" style="margin-right: 2.5%; margin-left: 5%">
+      <label for="facility">Faciity</label>
+      <input type="text" readonly id="facility" name="facility" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="warehouse">Warehouse</label>
+      <input type="text" readonly id="warehouse" name="warehouse" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="item">Item</label>
+      <input type="text" readonly id="item" name="item" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="description">Description</label>
+      <input type="text" readonly id="description" name="description" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="lotnum">Lot</label>
+      <input type="text" readonly id="lotnum" name="lotnum" />
+    </div>
+    <div class="two columns" style="margin-right: -2%">
+      <label for="baseUM">On hand qty basic UM </label>
+      <input
+        type="text"
+        readonly
+        id="baseUM"
+        name="baseUM"
+        style="width: 70%"
+      />
+    </div>
+    <div class="two columns" style="margin-right: 2%">
+      <label for="qtykg">On hand qty in KG </label>
+      <input type="text" readonly id="qtykg" name="qtykg" style="width: 60%" />
+    </div>
+    <br /><br /><br /><br /><br />
+  </div>
+  <div
+    class="row-padding"
+    style="border-bottom: 0.5px solid rgb(202, 202, 202); margin: 2%"
+  ></div>
+  <br />
+
+  <div class="row-padding" style="display: inline">
+    <div class="one columns" style="margin-left: 5%">
+      <label for="sequence" style="padding-top: 7.5%">Sequence</label>
+    </div>
+    <div class="five columns">
+      <input type="text" id="sequence" />
+    </div>
+    <br /><br /><br /><br /><br /><br />
+  </div>
+
+  <div class="row-padding" style="display: inline">
+    <div class="one column" style="margin-left: 5%">
+      <label for="item" style="padding-top: 7.5%">Item</label>
+    </div>
+    <div class="five columns">
+      <select
+        id="item"
+        name="item"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+  </div>
+
+  <div class="row-padding" style="display: inline">
+    <br /><br /><br /><br /><br /><br />
+    <div class="one column" style="margin-left: 5%">
+      <label for="qtyrel" style="padding-top: 7.5%">Qty Rel</label>
+    </div>
+    <div class="five columns">
+      <select
+        id="qtyrel"
+        name="qtyrel"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+  </div>
+
+  <div class="row-padding" style="display: inline">
+    <br /><br /><br /><br /><br /><br />
+    <div class="one column" style="margin-left: 5%">
+      <label for="quantity" style="padding-top: 7.5%">Quantity </label>
+    </div>
+    <div class="five columns">
+      <input
+        #spinbox
+        soho-spinbox
+        id="ngmodel-spinbox"
+        name="ngmodel-spinbox"
+        min="0"
+        max="50"
+      />
+    </div>
+    <br />
+  </div>
+  <br /><br /><br /><br /><br />
+  <div class="row-padding" style="display: inline">
+    <div class="one columns" style="margin-left: 5%">
+      <label for="wasteper" style="padding-top: 7.5%">Waste % </label>
+    </div>
+    <div class="five columns">
+      <input
+        #spinbox
+        soho-spinbox
+        id="ngmodel-spinbox"
+        name="ngmodel-spinbox"
+        min="0"
+        max="50"
+      />
+    </div>
+    <br />
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two columns" style="float: right">
+      <br /><br /><br />
+      <div class="twelve columns">
+        <button
+          class="btn-secondary"
+          type="button"
+          routerLink="/app-screen-j-reworkrecipe"
+          routerLinkActive="active"
+          id="primary-action-two"
+          style="margin-top: 5%"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</body>

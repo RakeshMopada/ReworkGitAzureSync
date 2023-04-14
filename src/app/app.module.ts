@@ -20,6 +20,8 @@ import { ScreenESelectionComponent } from './screen-e-selection/screen-e-selecti
 import { ScreenFCompselectComponent } from './screen-f-compselect/screen-f-compselect.component';
 import { ScreenGRecipecompareComponent } from './screen-g-recipecompare/screen-g-recipecompare.component';
 import { ScreenHAssgndetailsComponent } from './screen-h-assgndetails/screen-h-assgndetails.component';
+import { ScreenJReworkrecipeComponent } from './screen-j-reworkrecipe/screen-j-reworkrecipe.component';
+import { ScreenKRecipeedetailsComponent } from './screen-k-recipeedetails/screen-k-recipeedetails.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { ScreenHAssgndetailsComponent } from './screen-h-assgndetails/screen-h-a
     ScreenFCompselectComponent,
     ScreenGRecipecompareComponent,
     ScreenHAssgndetailsComponent,
+    ScreenJReworkrecipeComponent,
+    ScreenKRecipeedetailsComponent,
   ],
   imports: [
     BrowserModule,
