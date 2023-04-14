@@ -13,9 +13,15 @@ import { MainModule } from "./main/main.module";
 import { TestApiComponent } from "./test-api/test-api.component";
 import { TestAPIService } from "./test-api/test-api.service";
 import { ScreenAOverviewComponent } from "./screen-a-overview/screen-a-overview.component";
+import { ScreenBLotComponent } from "./screen-b-lot/screen-b-lot.component";
 
 @NgModule({
-  declarations: [AppComponent, TestApiComponent, ScreenAOverviewComponent],
+  declarations: [
+    AppComponent,
+    TestApiComponent,
+    ScreenAOverviewComponent,
+    ScreenBLotComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,

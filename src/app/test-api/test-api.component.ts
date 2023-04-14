@@ -10,6 +10,8 @@ import { TestAPIService } from "./test-api.service";
 export class TestApiComponent implements OnInit {
   usid: string;
   usname: string;
+  company: string;
+  arr = [];
   @ViewChild("grid", { static: true })
   private grid: SohoDataGridComponent;
 
@@ -24,6 +26,19 @@ export class TestApiComponent implements OnInit {
       const newArr = temp[0];
       this.usid = newArr["USID"];
       this.usname = newArr["NAME"];
+      this.company = newArr["CONO"];
+      this.LstUserFaci(this.company);
+    } catch (err) {
+      throw err;
+    }
+  }
+  async LstUserFaci(comp: any): Promise<void> {
+    try {
+      const temp = await this.apiService.Lstfacility(comp);
+      for (let i = 0; i < temp.length; i++) {
+        this.arr.push(temp[i].FACI);
+      }
+      console.log(this.arr);
     } catch (err) {
       throw err;
     }

@@ -1,0 +1,104 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        B-Rework Lot Selection
+      </h3>
+    </div>
+  </div>
+  <br />
+  <br /><br /><br />
+
+  <div class="row-padding">
+    <div class="two columns" style="margin-left: 5%">
+      <label for="warehouse">Warehouse</label>
+      <select
+        id="warehouse"
+        name="warehouse"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+
+    <div class="two columns" style="float: right; overflow: hidden">
+      <br /><br />
+      <button
+        class="btn-primary"
+        type="button"
+        id="secondary-action-one"
+        style="
+          margin-left: 9%;
+          width: 55%;
+          padding: 1%;
+          font-weight: lighter;
+          background-color: #2596be;
+          border-color: #2596be;
+        "
+      >
+        Apply</button
+      ><br />
+    </div>
+    <br /><br /><br /><br /><br />
+  </div>
+
+  <div
+    class="row-padding"
+    style="border-bottom: 1px groove rgb(161, 159, 159); margin: 2%"
+  ></div>
+
+  <div class="row-padding">
+    <div class="nine columns" style="margin-left: 5%">
+      <br /><br />
+      <div soho-datagrid="auto" [gridOptions]=""></div>
+    </div>
+    <div class="two columns" style="float: right; overflow: hidden">
+      <br /><br />
+      <div class="twelve columns">
+        <button
+          class="btn-primary"
+          type="button"
+          routerLink="/app-screen-c-details"
+          routerLinkActive="active"
+          id="primary-action-two"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two columns" style="float: right">
+      <button
+        class="btn-primary"
+        type="button"
+        routerLink="/app-screen-a-overview"
+        routerLinkActive="active"
+        id="primary-action-two"
+        style="margin-top: 10%; margin-left: 5%"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</body>

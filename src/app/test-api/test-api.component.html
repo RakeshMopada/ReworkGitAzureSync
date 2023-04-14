@@ -7,4 +7,18 @@
     <label style="font-size: small">User Name</label>
     <input type="text" readonly [(ngModel)]="usname" />
   </div>
+  <div class="three columns" style="margin-top: 1%">
+    <label for="facility">Facility</label>
+    <select
+      id="facility"
+      name="facility"
+      class="dropdown"
+      soho-dropdown
+      soho-busyindicator
+      blockUI="true"
+      displayDelay="0"
+    >
+      <option *ngFor="let item of arr">{{ item }}</option>
+    </select>
+  </div>
 </div>
