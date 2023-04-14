@@ -17,6 +17,9 @@ import { ScreenBLotComponent } from "./screen-b-lot/screen-b-lot.component";
 import { ScreenCDetailsComponent } from './screen-c-details/screen-c-details.component';
 import { ScreenDAssignmentComponent } from './screen-d-assignment/screen-d-assignment.component';
 import { ScreenESelectionComponent } from './screen-e-selection/screen-e-selection.component';
+import { ScreenFCompselectComponent } from './screen-f-compselect/screen-f-compselect.component';
+import { ScreenGRecipecompareComponent } from './screen-g-recipecompare/screen-g-recipecompare.component';
+import { ScreenHAssgndetailsComponent } from './screen-h-assgndetails/screen-h-assgndetails.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,9 @@ import { ScreenESelectionComponent } from './screen-e-selection/screen-e-selecti
     ScreenCDetailsComponent,
     ScreenDAssignmentComponent,
     ScreenESelectionComponent,
+    ScreenFCompselectComponent,
+    ScreenGRecipecompareComponent,
+    ScreenHAssgndetailsComponent,
   ],
   imports: [
     BrowserModule,

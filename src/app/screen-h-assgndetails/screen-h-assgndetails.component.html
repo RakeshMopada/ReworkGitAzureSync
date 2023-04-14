@@ -1,0 +1,106 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        H-Rework Assignment Details
+      </h3>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br />
+  <div class="row-padding" style="display: inline">
+    <div class="one column" style="margin-right: 2.5%; margin-left: 5%">
+      <label for="product">Product</label>
+      <input type="text" readonly id="product" name="product" />
+    </div>
+    <div class="two columns" style="margin-right: 2.5%">
+      <label for="description">Description</label>
+      <input type="text" readonly id="description" name="description" />
+    </div>
+    <br /><br /><br /><br /><br />
+  </div>
+  <div
+    class="row-padding"
+    style="border-bottom: 0.5px solid rgb(202, 202, 202); margin: 2%"
+  ></div>
+  <br />
+  <div class="row-padding" style="display: inline">
+    <div class="one columns" style="margin-left: 5%">
+      <label for="costprice" style="padding-top: 7.5%">Assigned % </label>
+    </div>
+    <div class="five columns">
+      <input
+        #spinbox
+        soho-spinbox
+        id="ngmodel-spinbox"
+        name="ngmodel-spinbox"
+        min="0"
+        max="50"
+      />
+    </div>
+    <br />
+  </div>
+  <br /><br /><br /><br /><br />
+  <div class="row-padding" style="display: inline">
+    <div class="one columns" style="margin-left: 5%">
+      <label for="assKG" style="padding-top: 7.5%">Assigned KG </label>
+    </div>
+    <div class="five columns">
+      <input
+        #spinbox
+        soho-spinbox
+        id="ngmodel-spinbox"
+        name="ngmodel-spinbox"
+        min="0"
+        max="50"
+      />
+    </div>
+    <br />
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="three columns" style="margin-left: 5%; float: left">
+      <br /><br /><br />
+      <label for="reworkstatus">Comments</label>
+      <textarea
+        id="description-max"
+        class="textarea"
+        name="description-max"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two columns" style="float: right">
+      <br /><br /><br /><br />
+      <div class="twelve columns">
+        <button
+          class="btn-secondary"
+          type="button"
+          routerLink="/app-screen-d-assignment"
+          routerLinkActive="active"
+          id="primary-action-two"
+          style="margin-top: 5%"
+        >
+          Confirm
+        </button>
+      </div>
+    </div>
+  </div>
+</body>
