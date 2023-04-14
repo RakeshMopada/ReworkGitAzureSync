@@ -1,0 +1,167 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        A-Rework Assignment Overview
+      </h3>
+    </div>
+  </div>
+  <br />
+  <br /><br /><br /><br />
+
+  <div class="row-padding">
+    <div class="two columns" style="margin-left: 5%">
+      <label for="facility" style="font-size: 1.4rem">Facility</label>
+      <select
+        id="facility"
+        name="facility"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+
+    <div class="two columns" style="margin-left: 5%">
+      <label for="from-status" style="font-size: 1.4rem">From Status</label>
+      <select
+        id="from-status"
+        name="from-status"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+
+    <div class="two columns" style="margin-left: 5%">
+      <label for="to-status" style="font-size: 1.4rem">To Status</label>
+      <select
+        id="to-status"
+        name="to-status"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+
+    <div class="two columns" style="float: right; overflow: hidden">
+      <br /><br />
+      <button
+        class="btn-primary"
+        type="button"
+        id="secondary-action-one"
+        style="
+          width: 55%;
+          padding: 1%;
+          margin-left: 9%;
+          background-color: #2596be;
+          border-color: #2596be;
+          font-weight: lighter;
+        "
+      >
+        Apply</button
+      ><br />
+    </div>
+    <br /><br /><br /><br /><br />
+  </div>
+
+  <div
+    class="row-padding"
+    style="border-bottom: 1px solid rgb(161, 159, 159); margin: 2%"
+  ></div>
+
+  <div class="row-padding">
+    <div class="nine columns" style="margin-left: 5%">
+      <br /><br />
+      <div soho-datagrid="auto" [gridOptions]=""></div>
+    </div>
+    <div class="two columns" style="float: right; overflow: hidden">
+      <br /><br />
+      <div class="twelve columns">
+        <button
+          class="btn-primary"
+          type="button"
+          routerLink="/app-screen-b-lot"
+          routerLinkActive="active"
+          id="primary-action-two"
+        >
+          Add
+        </button>
+      </div>
+      <div class="twelve columns">
+        <button
+          class="btn-primary"
+          type="button"
+          routerLink="/app-screen-c-details"
+          routerLinkActive="active"
+          id="primary-action-two"
+        >
+          Change
+        </button>
+      </div>
+      <div class="twelve columns">
+        <button
+          class="btn-primary"
+          type="button"
+          routerLink="/app-screen-d-assignment"
+          routerLinkActive="active"
+          id="primary-action-two"
+        >
+          Assign
+        </button>
+      </div>
+      <div class="twelve columns">
+        <button class="btn-primary" type="button" id="reclassify-button">
+          Rework
+        </button>
+      </div>
+      <div class="twelve columns">
+        <button
+          class="btn-primary"
+          type="button"
+          routerLink="/app-screen-l-disposal"
+          routerLinkActive="active"
+          id="primary-action-two"
+        >
+          Dispose
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <button
+  routerLink="/app-screen-b-lot"
+  routerLinkActive="active"
+  ariaCurrentWhenActive="page"
+>
+  Screen B
+</button>
+<button
+  routerLink="/app-screen-c-details"
+  routerLinkActive="active"
+  ariaCurrentWhenActive="page"
+>
+  Screen C
+</button> -->
+  <router-outlet></router-outlet>
+</body>
