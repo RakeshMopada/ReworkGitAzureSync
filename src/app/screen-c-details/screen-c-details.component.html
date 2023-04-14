@@ -1,0 +1,194 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        C-Rework Details
+      </h3>
+    </div>
+  </div>
+  <br />
+  <br /><br /><br /><br />
+
+  <div class="row-padding" style="display: inline">
+    <div class="one column" style="margin-right: 2.5%; margin-left: 5%">
+      <label for="facility">Faciity</label>
+      <input type="text" readonly id="facility" name="facility" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="warehouse">Warehouse</label>
+      <input type="text" readonly id="warehouse" name="warehouse" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="item">Item</label>
+      <input type="text" readonly id="item" name="item" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="description">Description</label>
+      <input type="text" readonly id="description" name="description" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="lotnum">Lot</label>
+      <input type="text" readonly id="lotnum" name="lotnum" />
+    </div>
+    <div class="two columns" style="margin-right: -4%">
+      <label for="baseUM">On hand qty basic UM </label>
+      <input
+        type="text"
+        readonly
+        id="baseUM"
+        name="baseUM"
+        style="width: 60%"
+      />
+    </div>
+    <div class="two columns" style="margin-right: 2%">
+      <label for="qtykg">On hand qty in KG </label>
+      <input type="text" readonly id="qtykg" name="qtykg" style="width: 60%" />
+    </div>
+    <br /><br /><br /><br /><br />
+  </div>
+
+  <div
+    class="row-padding"
+    style="border-bottom: 0.5px solid rgb(202, 202, 202); margin: 2%"
+  ></div>
+
+  <div class="row-padding">
+    <div class="five columns" style="margin-left: 4%">
+      <div class="twelve columns">
+        <label for="origin">Origin</label>
+        <select
+          id="origin"
+          name="origin"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+      <div class="twelve columns">
+        <label for="reworkmethod">Rework Method</label>
+        <select
+          id="reworkmethod"
+          name="reworkmethod"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+      <div class="twelve columns">
+        <label for="reference">Reference</label>
+        <input type="text" name="reference" />
+      </div>
+      <br /><br />
+      <div class="twelve columns">
+        <br /><br />
+        <label for="reworkstatus">Rework Status</label>
+        <select
+          id="reworkstatus"
+          name="reworkstatus"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+      <div class="twelve columns">
+        <label for="reworkstatus">Comments</label>
+        <textarea
+          id="description-max"
+          class="textarea"
+          name="description-max"
+          style="width: 55%"
+        ></textarea>
+      </div>
+    </div>
+    <div class="five columns" style="margin-left: 4%">
+      <div class="twelve columns">
+        <label for="complainttype">Complaint Type</label>
+        <select
+          id="complainttype"
+          name="complainttype"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+      <div class="twelve columns">
+        <label for="reasoncode">Reason Code</label>
+        <select
+          id="reasoncode"
+          name="reasoncode"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+      <div class="twelve columns">
+        <label for="complaintspec">Complaint Spec</label>
+        <input type="text" name="complaintspec" />
+      </div>
+      <br /><br />
+      <div class="twelve columns">
+        <br /><br />
+        <label for="responsible">Responsible</label>
+        <select
+          id="responsible"
+          name="responsible"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+      <div class="twelve columns">
+        <br /><br />
+        <input type="checkbox" class="checkbox" name="approved" id="approved" />
+        <label for="approved" class="checkbox-label">Approved</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-padding">
+    <div class="two columns" style="float: right">
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <button
+        class="btn-primary"
+        type="button"
+        id="secondary-action-one"
+        style="
+          width: 50%;
+          padding: 1%;
+          font-weight: lighter;
+          background-color: #2596be;
+          border-color: #2596be;
+        "
+      >
+        Confirm
+      </button>
+    </div>
+  </div>
+</body>
