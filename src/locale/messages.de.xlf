@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" 
+   xmlns="urn:oasis:names:tc:xliff:document:1.2">
+   <file source-language="en" datatype="plaintext" original="ng2.template">
+      <body>
+         <trans-unit id="noTrans" datatype="html">
+            <source>No translation available</source>
+            <target>No translation available</target>
+            <context-group purpose="location">
+               <context context-type="sourcefile">../node_modules/iab-odin-angular-extensions-library/lib/translate/translate.component.d.ts</context>
+               <context context-type="linenumber">4</context>
+            </context-group>
+            <note priority="1" from="description">if in the translate service an unknown service id is requisted this text is returned</note>
+            <note priority="1" from="meaning">translation not available</note>
+         </trans-unit>
+      </body>
+   </file>
+</xliff>

@@ -1,0 +1,6 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* grid.css applies a max-width of 1280px for rows */
+#maincontent .row {
+   max-width: unset;
+}

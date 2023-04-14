@@ -1,0 +1,25 @@
+{
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "app", "camelCase"],
+    "component-selector": [true, "element", "app", "kebab-case"],
+    "max-line-length": [true, 200],
+    "interface-name": true,
+    "no-magic-numbers": true,
+    "no-return-await": true,
+    "strict-string-expressions": true,
+    "tslint.autoFixOnSave": true,
+    "cyclomatic-complexity": [true, 8],
+    "no-duplicate-imports": true,
+    "quotemark": [true, "double", "avoid-escape"],
+    "prefer-switch": [
+      true,
+      {
+        "min-cases": 4
+      }
+    ],
+    "variable-name": {
+      "options": ["check-format", "ban-keywords"]
+    }
+  }
+}

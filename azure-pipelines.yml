@@ -1,0 +1,84 @@
+# Node.js with Angular
+# Build a Node.js project that uses Angular.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  version: 1.0.0.0
+  applicationName: 'EXT11A_ReworkAssignments'
+
+name: $(rev:r)
+
+steps:
+
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      Write-Host "Main value is $(version)"
+      $version = node -e "console.log(require('./package.json').version);"
+      Write-Host "##vso[task.setvariable variable=version]$version.0"
+      Write-Host "package value is $(version)"
+      Write-Host "##vso[build.updatebuildnumber]$(applicationName)_$(version).$(build.buildnumber)"
+  displayName: 'retrieve version number'
+  
+- task: NodeTool@0
+  inputs:
+    versionSpec: '14.x'
+  displayName: 'Install Node.js'
+
+
+- script: |
+    npm install -g @angular/cli
+  displayName: 'Install angular cli'
+
+- task: Npm@1
+  inputs:
+    command: 'install'
+
+- task: Npm@1
+  displayName: 'Lint Angular'
+  inputs:
+    command: custom
+    customCommand: run lint --  --format=stylish
+    workingDir:
+
+- script: |
+    ng build --prod --i18n-file src/locale/messages.en.xlf --i18n-format xlf --i18n-locale en --output-path dist/en
+  displayName: 'Angular build english'
+
+- script: |
+    ng build --prod --i18n-file src/locale/messages.nl.xlf --i18n-format xlf --i18n-locale nl --output-path dist/nl
+  displayName: 'Angular build dutch'
+
+- script: |
+    ng build --prod --i18n-file src/locale/messages.de.xlf --i18n-format xlf --i18n-locale de --output-path dist/de
+  displayName: 'Angular build german'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'dist/en/assets/'
+    Contents: 'index.html'
+    TargetFolder: 'dist/'
+  displayName: 'copy language redirect index'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: './dist/'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(applicationName)_$(version).zip'
+    replaceExistingArchive: true
+  displayName: 'zip build result'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    artifact: 'package'

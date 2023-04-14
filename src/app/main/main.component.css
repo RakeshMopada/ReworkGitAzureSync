@@ -1,0 +1,15 @@
+.summary-form .row {
+   margin-top: 20px;
+}
+
+@media (min-width: 767px) {
+   #address-text-area-wrapper{
+      padding-top: 55px;
+   }
+}
+
+
+
+#address-text-area{
+   max-width: 300px;
+}

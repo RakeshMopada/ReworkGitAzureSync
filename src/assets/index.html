@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>ApplicationTemplate</title>
+   <base href="/">
+
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+   <script type="text/javascript">
+      let applicationUrl = window.location.href.split('?')[0];
+      let languageUrl;
+      let currentLanguage = 'GB';
+      if (window.parent.userContext) {
+         currentLanguage = window.parent.userContext.CurrentLanguage;
+         setLanguage(currentLanguage);
+      } else {
+         fetch('https://' + window.location.host + '/m3api-rest/execute/MNS150MI/GetUserData/').then((response) => {
+            response.text().then((text) => {
+               const xmlDocument = new DOMParser().parseFromString(text, 'text/xml');
+               const nameValues = xmlDocument.getElementsByTagName('NameValue');
+               for (const nameValue of nameValues) {
+                  if (nameValue.getElementsByTagName('Name')[0].childNodes[0].data == 'LANC') {
+                     const language = nameValue.getElementsByTagName('Value')[0].childNodes[0].data;
+
+                     currentLanguage = language;
+                  }
+               }
+
+               setLanguage(currentLanguage);
+            });
+
+         })
+
+      }
+      function setLanguage(language) {
+         switch (currentLanguage) {
+            case 'GB':
+               languageUrl = applicationUrl + 'en/';
+               break;
+            case 'NL':
+               languageUrl = applicationUrl + 'nl/';
+               break;
+            case 'DE':
+               languageUrl = applicationUrl + 'de/';
+               break;
+            default:
+               languageUrl = applicationUrl + 'en/';
+         }
+
+         window.location.replace(languageUrl);
+      }
+
+   </script>
+</body>
+
+</html>
