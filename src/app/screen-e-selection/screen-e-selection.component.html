@@ -1,0 +1,179 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        E-Rework Assignment Selection
+      </h3>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br />
+  <div class="row-padding" style="display: inline">
+    <div class="one column" style="margin-right: 1%; margin-left: 5%">
+      <label for="facility">Faciity</label>
+      <input type="text" readonly id="facility" name="facility" />
+    </div>
+    <div class="one column" style="margin-right: 1%">
+      <label for="warehouse">Warehouse</label>
+      <input type="text" readonly id="warehouse" name="warehouse" />
+    </div>
+    <div class="one column" style="margin-right: 1%">
+      <label for="item">Item</label>
+      <input type="text" readonly id="item" name="item" />
+    </div>
+    <div class="one column" style="margin-right: 1%">
+      <label for="description">Description</label>
+      <input type="text" readonly id="description" name="description" />
+    </div>
+    <div class="one column" style="margin-right: 1%">
+      <label for="lotnum">Lot</label>
+      <input type="text" readonly id="lotnum" name="lotnum" />
+    </div>
+    <div class="two columns" style="margin-right: -2%">
+      <label for="baseUM">On hand qty basic UM </label>
+      <input
+        type="text"
+        readonly
+        id="baseUM"
+        name="baseUM"
+        style="width: 70%"
+      />
+    </div>
+    <div class="two columns">
+      <label for="qtykg">On hand qty in KG </label>
+      <input type="text" readonly id="qtykg" name="qtykg" style="width: 60%" />
+    </div>
+    <div class="two columns">
+      <br /><br />
+      <div class="twelve columns">
+        <button
+          class="btn-primary"
+          type="button"
+          [routerLink]="['/app-screen-f-compselect']"
+          id="primary-action-two"
+          style="
+            padding: 2%;
+            margin-left: 12%;
+            padding-left: 5%;
+            padding-right: 5%;
+            border-width: 1px;
+          "
+        >
+          Component <br />Selection
+        </button>
+      </div>
+    </div>
+    <br /><br />
+  </div>
+  <div class="row-padding">
+    <div class="five columns" style="margin-left: 3.7%">
+      <div class="twelve columns">
+        <label for="productgroup">Product Group</label>
+        <select
+          id="productgroup"
+          name="productgroup"
+          class="dropdown"
+          soho-dropdown
+          soho-busyindicator
+          blockUI="true"
+          displayDelay="0"
+        ></select>
+      </div>
+    </div>
+    <div class="two columns" style="float: right; margin-right: 0.5%">
+      <br /><br />
+      <button
+        class="btn-primary"
+        type="button"
+        id="primary-action"
+        style="
+          background-color: white;
+          color: rgb(85, 85, 85);
+          border-color: rgb(85, 85, 85);
+          width: 55%;
+          padding: 1%;
+          border-width: 1px;
+          margin-left: 12%;
+          font-weight: lighter;
+        "
+      >
+        Calculate
+      </button>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  <div
+    class="row-padding"
+    style="border-bottom: 0.5px solid rgb(202, 202, 202); margin: 2%"
+  ></div>
+  <br />
+  <div class="row-padding">
+    <div class="nine columns" style="margin-left: 5%">
+      <div soho-datagrid="auto" [gridOptions]=""></div>
+    </div>
+  </div>
+  <div class="two columns" style="float: right; overflow: hidden">
+    <div class="twelve columns">
+      <button
+        class="btn-primary"
+        type="button"
+        routerLink="/app-screen-h-assgndetails"
+        routerLinkActive="active"
+        id="primary-action-two"
+      >
+        Add
+      </button>
+      <br /><br />
+    </div>
+    <div class="twelve columns">
+      <button
+        class="btn-primary"
+        routerLink="/app-screen-g-recipecompare"
+        routerLinkActive="active"
+        type="button"
+        id="primary-action-two"
+      >
+        Compare
+      </button>
+      <br /><br />
+    </div>
+  </div>
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two columns" style="float: right; margin-right: 0px">
+      <br />
+      <button
+        class="btn-secondary"
+        type="button"
+        routerLink="/app-screen-d-assignments"
+        routerLinkActive="active"
+        id="primary-action"
+        style="
+          width: 60%;
+          margin-left: 5%;
+          background-color: #2596be;
+          color: white;
+          border-color: #2596be;
+          border-width: 1px;
+          font-weight: lighter;
+        "
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</body>

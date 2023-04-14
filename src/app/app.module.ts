@@ -16,6 +16,7 @@ import { ScreenAOverviewComponent } from "./screen-a-overview/screen-a-overview.
 import { ScreenBLotComponent } from "./screen-b-lot/screen-b-lot.component";
 import { ScreenCDetailsComponent } from './screen-c-details/screen-c-details.component';
 import { ScreenDAssignmentComponent } from './screen-d-assignment/screen-d-assignment.component';
+import { ScreenESelectionComponent } from './screen-e-selection/screen-e-selection.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ScreenDAssignmentComponent } from './screen-d-assignment/screen-d-assig
     ScreenBLotComponent,
     ScreenCDetailsComponent,
     ScreenDAssignmentComponent,
+    ScreenESelectionComponent,
   ],
   imports: [
     BrowserModule,
