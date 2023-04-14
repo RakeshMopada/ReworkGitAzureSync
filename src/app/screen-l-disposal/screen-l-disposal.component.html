@@ -1,0 +1,145 @@
+<body>
+  <div class="row-padding">
+    <div
+      class="twelve columns"
+      style="
+        width: 100%;
+        margin-left: 0px;
+        padding-top: 0.5%;
+        padding-bottom: 0.5%;
+      "
+    >
+      <h3
+        style="
+          text-align: center;
+          font-weight: 500;
+          color: rgb(140, 140, 140);
+          font-style: italic;
+        "
+      >
+        L-Disposal Details
+      </h3>
+    </div>
+  </div>
+  <br /><br /><br /><br /><br />
+  <div class="row-padding" style="display: inline">
+    <div class="one column" style="margin-right: 2.5%; margin-left: 5%">
+      <label for="facility">Faciity</label>
+      <input type="text" readonly id="facility" name="facility" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="warehouse">Warehouse</label>
+      <input type="text" readonly id="warehouse" name="warehouse" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="item">Item</label>
+      <input type="text" readonly id="item" name="item" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="description">Description</label>
+      <input type="text" readonly id="description" name="description" />
+    </div>
+    <div class="one column" style="margin-right: 2.5%">
+      <label for="lotnum">Lot</label>
+      <input type="text" readonly id="lotnum" name="lotnum" />
+    </div>
+    <div class="two columns" style="margin-right: -2%">
+      <label for="baseUM">On hand qty basic UM </label>
+      <input
+        type="text"
+        readonly
+        id="baseUM"
+        name="baseUM"
+        style="width: 70%"
+      />
+    </div>
+    <div class="two columns" style="margin-right: 2%">
+      <label for="qtykg">On hand qty in KG </label>
+      <input type="text" readonly id="qtykg" name="qtykg" style="width: 60%" />
+    </div>
+    <br /><br /><br /><br /><br />
+  </div>
+  <div
+    class="row-padding"
+    style="border-bottom: 0.5px solid rgb(202, 202, 202); margin: 2%"
+  ></div>
+  <br />
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two column" style="margin-left: 5%">
+      <label for="costprice">Cost Price </label>
+      <input
+        type="text"
+        readonly
+        id="costprice"
+        name="costprice"
+        style="width: 15%"
+      />
+    </div>
+    <br />
+    <div class="ten columns"></div>
+  </div>
+  <br /><br /><br /><br /><br /><br /><br />
+  <div class="row-padding">
+    <div class="ten columns"></div>
+    <div class="two column" style="float: left; margin-left: 5%">
+      <label for="stockval">Stock Value </label>
+      <input
+        type="text"
+        readonly
+        id="stockval"
+        name="stockval"
+        style="width: 15%"
+      />
+    </div>
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="three columns" style="margin-left: 5%; float: left">
+      <br /><br />
+      <label for="reworkstatus">Comments</label>
+      <textarea
+        id="description-max"
+        class="textarea"
+        name="description-max"
+      ></textarea>
+    </div>
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two columns" style="margin-left: 5%; float: left">
+      <br /><br />
+      <label for="origin">Origin</label>
+      <select
+        id="origin"
+        name="origin"
+        class="dropdown"
+        soho-dropdown
+        soho-busyindicator
+        blockUI="true"
+        displayDelay="0"
+      ></select>
+    </div>
+  </div>
+
+  <div class="row-padding">
+    <div class="nine columns"></div>
+    <div class="two columns" style="float: right">
+      <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+      <div class="twelve columns">
+        <button
+          class="btn-secondary"
+          type="button"
+          routerLink="/app-screen-a-overview"
+          routerLinkActive="active"
+          id="primary-action-two"
+          style="margin-top: 5%"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</body>

@@ -22,6 +22,7 @@ import { ScreenGRecipecompareComponent } from './screen-g-recipecompare/screen-g
 import { ScreenHAssgndetailsComponent } from './screen-h-assgndetails/screen-h-assgndetails.component';
 import { ScreenJReworkrecipeComponent } from './screen-j-reworkrecipe/screen-j-reworkrecipe.component';
 import { ScreenKRecipeedetailsComponent } from './screen-k-recipeedetails/screen-k-recipeedetails.component';
+import { ScreenLDisposalComponent } from './screen-l-disposal/screen-l-disposal.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ScreenKRecipeedetailsComponent } from './screen-k-recipeedetails/screen
     ScreenHAssgndetailsComponent,
     ScreenJReworkrecipeComponent,
     ScreenKRecipeedetailsComponent,
+    ScreenLDisposalComponent,
   ],
   imports: [
     BrowserModule,
