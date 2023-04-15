@@ -12,13 +12,12 @@
     <select
       id="facility"
       name="facility"
-      class="dropdown"
       soho-dropdown
-      soho-busyindicator
-      blockUI="true"
-      displayDelay="0"
+      style="position: relative"
     >
-      <option *ngFor="let item of arr">{{ item }}</option>
+      <option style="position: relative" *ngFor="let item of arr">
+        {{ item }}
+      </option>
     </select>
   </div>
 </div>

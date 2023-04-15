@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 // import { ScreenBLotComponent } from "../screen-b-lot/screen-b-lot.component";
-import { ScreenAService } from "./screen-a-service";
 import { SohoDataGridComponent } from "ids-enterprise-ng";
 @Component({
   selector: "app-screen-a-overview",
@@ -9,9 +8,10 @@ import { SohoDataGridComponent } from "ids-enterprise-ng";
   styleUrls: ["./screen-a-overview.component.css"],
 })
 export class ScreenAOverviewComponent implements OnInit {
+  arr = [];
   @ViewChild("grid", { static: true })
   private grid: SohoDataGridComponent;
-  constructor(private apiService: ScreenAService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }
