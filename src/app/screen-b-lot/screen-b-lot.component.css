@@ -28,3 +28,14 @@ body {
   max-zoom: 100%;
   min-zoom: 50%;
 }
+
+#dropScreen {
+  width: 100%;
+  padding: 2.5%;
+  background-color: rgba(240, 240, 240, 255);
+  border: 1px solid rgb(151, 151, 151);
+}
+
+#dropScreen:hover {
+  border: 1px solid black;
+}

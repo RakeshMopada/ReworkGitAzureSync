@@ -28,20 +28,22 @@
     <div class="two columns" style="margin-left: 5%">
       <label for="facility" style="font-size: 1.4rem">Facility</label>
       <select
-        id="facility"
+        id="dropScreen"
         name="facility"
-        class="dropdown"
-        soho-dropdown
-        soho-busyindicator
-        blockUI="true"
-        displayDelay="0"
-      ></select>
+        [(ngModel)]="selectedFACI"
+        (change)="faciltyClick($event)"
+      >
+        <option></option>
+        <option *ngFor="let item of arrFacilityDesc">
+          {{ item }}
+        </option>
+      </select>
     </div>
 
     <div class="two columns" style="margin-left: 5%">
       <label for="from-status" style="font-size: 1.4rem">From Status</label>
       <select
-        id="from-status"
+        id="dropScreen"
         name="from-status"
         class="dropdown"
         soho-dropdown
@@ -54,7 +56,7 @@
     <div class="two columns" style="margin-left: 5%">
       <label for="to-status" style="font-size: 1.4rem">To Status</label>
       <select
-        id="to-status"
+        id="dropScreen"
         name="to-status"
         class="dropdown"
         soho-dropdown
