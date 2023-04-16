@@ -10,6 +10,7 @@ import { SohoDataGridComponent } from "ids-enterprise-ng";
   styleUrls: ["./screen-a-overview.component.css"],
 })
 export class ScreenAOverviewComponent implements OnInit {
+  isBusy = true;
   usid: string;
   usname: string;
   company: string;
@@ -60,6 +61,7 @@ export class ScreenAOverviewComponent implements OnInit {
         combinedString = this.arrFACI[i] + " - " + this.arrFACN[i];
         this.arrFacilityDesc.push(combinedString);
       }
+      this.isBusy = false;
     } catch (err) {
       throw err;
     }

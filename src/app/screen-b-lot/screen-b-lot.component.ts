@@ -9,6 +9,7 @@ import { ScreenAService } from "../screen-a-overview/screen-a-service";
   styleUrls: ["./screen-b-lot.component.css"],
 })
 export class ScreenBLotComponent implements OnInit {
+  isBusy = true;
   company: string;
   facility: string;
   arrWarehouse = [];
@@ -44,6 +45,7 @@ export class ScreenBLotComponent implements OnInit {
         this.arrWarehouse.push(tempArr["WHLO"]);
       }
       console.log(this.arrWarehouse);
+      this.isBusy = false;
     } catch (err) {
       throw err;
     }

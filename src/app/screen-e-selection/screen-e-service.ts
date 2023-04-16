@@ -11,19 +11,15 @@ interface IUserId {
   usid: string;
 }
 
-interface IFacility {
-  cono: string;
-  FACI: string;
-  FACN: string;
+interface IProductGroup {
+  ITCL: string;
+  TX40: string;
 }
 
 @Injectable({
   providedIn: "root",
 })
-export class ScreenAService {
-  companyService: string;
-  facilityService: string;
-
+export class ScreenEService {
   private userContext: IUserContext;
 
   constructor(
@@ -35,23 +31,10 @@ export class ScreenAService {
     });
   }
 
-  setCompany(comp: any) {
-    this.companyService = comp;
-  }
-  setFacility(facility: any) {
-    this.facilityService = facility;
-  }
-
-  public getUserId(): Promise<IUserId[]> {
+  public getProductGroup(): Promise<IProductGroup[]> {
     const parameters: IMIParameter[] = [];
     return this.miService
-      .executeList<IUserId>("MNS150MI", "GetUserData", parameters)
-      .toPromise();
-  }
-  public Lstfacility(company: any): Promise<IFacility[]> {
-    const parameters: IMIParameter[] = [{ name: "CONO", value: company }];
-    return this.miService
-      .executeList<IFacility>("CRS008MI", "ListFacility", parameters)
+      .executeList<IProductGroup>("CRS035MI", "LstProductGroup", parameters)
       .toPromise();
   }
 }

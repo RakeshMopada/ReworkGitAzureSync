@@ -1,4 +1,4 @@
-<body>
+<body soho-busyindicator [activated]="isBusy">
   <div class="row-padding">
     <div
       class="twelve columns"
@@ -81,17 +81,14 @@
   </div>
   <div class="row-padding">
     <div class="five columns" style="margin-left: 3.7%">
-      <div class="twelve columns">
+      <div class="four columns">
         <label for="productgroup">Product Group</label>
-        <select
-          id="productgroup"
-          name="productgroup"
-          class="dropdown"
-          soho-dropdown
-          soho-busyindicator
-          blockUI="true"
-          displayDelay="0"
-        ></select>
+        <select id="dropScreen" name="productgroup">
+          <option></option>
+          <option *ngFor="let item of arrProductGroup">
+            {{ item }}
+          </option>
+        </select>
       </div>
     </div>
     <div class="two columns" style="float: right; margin-right: 0.5%">
