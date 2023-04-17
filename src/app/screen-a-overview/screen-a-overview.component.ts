@@ -4,6 +4,17 @@ import { RouterModule, Routes } from "@angular/router";
 import { ScreenAService } from "./screen-a-service";
 import { SohoDataGridComponent } from "ids-enterprise-ng";
 
+interface ILstEXTRWH {
+  ITNO: string;
+  ITDS: string;
+  BANO: string;
+  STAS: string;
+  METH: string;
+  TRQT: string;
+  TRQA: string;
+  ALQT: string;
+}
+
 @Component({
   selector: "app-screen-a-overview",
   templateUrl: "./screen-a-overview.component.html",
@@ -23,7 +34,7 @@ export class ScreenAOverviewComponent implements OnInit {
   arrEXTRWH = [];
 
   constructor(private apiService: ScreenAService) {}
-  @ViewChild("grid", { static: true })
+  @ViewChild("placeholderDataGrid") datagrid: SohoDataGridComponent;
   private grid: SohoDataGridComponent;
   ngOnInit(): void {
     this.getUserId();
@@ -41,6 +52,7 @@ export class ScreenAOverviewComponent implements OnInit {
       columns: this.buildGridColumns(),
       editable: true,
       alternateRowShading: true,
+      dataset: [],
       emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
   }
@@ -147,22 +159,11 @@ export class ScreenAOverviewComponent implements OnInit {
   async loadDataGrid(company: any): Promise<void> {
     try {
       const temp = await this.apiService.LstEXTRWH(company);
-      console.log(temp);
-      for (let i = 0; i < temp.length; i++) {
-        this.arrEXTRWH.push(temp[i].ITNO);
-        this.arrEXTRWH.push(temp[i].ITDS);
-        this.arrEXTRWH.push(temp[i].BANO);
-        this.arrEXTRWH.push(temp[i].STAS);
-        this.arrEXTRWH.push(temp[i].METH);
-        this.arrEXTRWH.push(temp[i].TRQT);
-        this.arrEXTRWH.push(temp[i].TRQA);
-        this.arrEXTRWH.push(temp[i].ALQT);
-        this.gridOptions.dataset = this.arrEXTRWH;
-      }
-      console.log("Array EXTRWh");
-      console.log(this.arrEXTRWH);
-      console.log("Data set");
-      console.log(this.gridOptions.dataset);
+      // this.gridOptions.dataset = <ILstEXTRWH[]>temp;
+      this.datagrid
+        ? (this.datagrid.dataset = temp)
+        : (this.gridOptions.dataset = temp);
+      this.isBusy = false;
     } catch (err) {
       throw err;
     }
@@ -181,7 +182,6 @@ export class ScreenAOverviewComponent implements OnInit {
         combinedString = this.arrFACI[i] + " - " + this.arrFACN[i];
         this.arrFacilityDesc.push(combinedString);
       }
-      this.isBusy = false;
     } catch (err) {
       throw err;
     }
