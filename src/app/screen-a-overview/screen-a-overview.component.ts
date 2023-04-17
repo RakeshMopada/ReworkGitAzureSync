@@ -3,6 +3,18 @@ import { RouterModule, Routes } from "@angular/router";
 // import { ScreenBLotComponent } from "../screen-b-lot/screen-b-lot.component";
 import { ScreenAService } from "./screen-a-service";
 import { SohoDataGridComponent } from "ids-enterprise-ng";
+
+interface ILstEXTRWH {
+  ITNO: string;
+  ITDS: string;
+  BANO: string;
+  STAS: string;
+  METH: string;
+  TRQT: string;
+  TRQA: string;
+  ALQT: string;
+}
+
 @Component({
   selector: "app-screen-a-overview",
   templateUrl: "./screen-a-overview.component.html",
@@ -20,6 +32,7 @@ export class ScreenAOverviewComponent implements OnInit {
   arrFACN = [];
   arrFacilityDesc = [];
   arrEXTRWH = [];
+<<<<<<< HEAD
 
   constructor(private apiService: ScreenAService) {}
   @ViewChild("grid", { static: true })
@@ -29,6 +42,17 @@ export class ScreenAOverviewComponent implements OnInit {
     this.buildGridOptions();
   }
 
+=======
+
+  constructor(private apiService: ScreenAService) {}
+  @ViewChild("placeholderDataGrid") datagrid: SohoDataGridComponent;
+  private grid: SohoDataGridComponent;
+  ngOnInit(): void {
+    this.getUserId();
+    this.buildGridOptions();
+  }
+
+>>>>>>> 31fb11d3dc298ed5fc5b74822437dc594ce507b3
   private buildGridOptions(): void {
     this.gridOptions = {
       selectable: "single",
@@ -39,7 +63,11 @@ export class ScreenAOverviewComponent implements OnInit {
       cellNavigation: false,
       columns: this.buildGridColumns(),
       editable: true,
+<<<<<<< HEAD
       alternateRowShading: true,
+=======
+      dataset: [],
+>>>>>>> 31fb11d3dc298ed5fc5b74822437dc594ce507b3
       emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
   }
@@ -54,6 +82,10 @@ export class ScreenAOverviewComponent implements OnInit {
         align: "center",
         sortable: true,
         searchable: true,
+<<<<<<< HEAD
+=======
+        filterType: "text",
+>>>>>>> 31fb11d3dc298ed5fc5b74822437dc594ce507b3
       },
       {
         width: 100,
@@ -146,6 +178,7 @@ export class ScreenAOverviewComponent implements OnInit {
   async loadDataGrid(company: any): Promise<void> {
     try {
       const temp = await this.apiService.LstEXTRWH(company);
+<<<<<<< HEAD
       console.log(temp);
       for (let i = 0; i < temp.length; i++) {
         this.arrEXTRWH.push(temp[i].ITNO);
@@ -162,6 +195,13 @@ export class ScreenAOverviewComponent implements OnInit {
       console.log(this.arrEXTRWH);
       console.log("Data set");
       console.log(this.gridOptions.dataset);
+=======
+      // this.gridOptions.dataset = <ILstEXTRWH[]>temp;
+      this.datagrid
+        ? (this.datagrid.dataset = temp)
+        : (this.gridOptions.dataset = temp);
+      this.isBusy = false;
+>>>>>>> 31fb11d3dc298ed5fc5b74822437dc594ce507b3
     } catch (err) {
       throw err;
     }
@@ -180,7 +220,10 @@ export class ScreenAOverviewComponent implements OnInit {
         combinedString = this.arrFACI[i] + " - " + this.arrFACN[i];
         this.arrFacilityDesc.push(combinedString);
       }
+<<<<<<< HEAD
       this.isBusy = false;
+=======
+>>>>>>> 31fb11d3dc298ed5fc5b74822437dc594ce507b3
     } catch (err) {
       throw err;
     }

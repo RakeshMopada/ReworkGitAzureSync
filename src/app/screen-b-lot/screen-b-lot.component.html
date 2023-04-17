@@ -1,4 +1,4 @@
-<body>
+<body soho-busyindicator [activated]="isBusy">
   <div class="row-padding">
     <div
       class="twelve columns"
@@ -27,15 +27,12 @@
   <div class="row-padding">
     <div class="two columns" style="margin-left: 5%">
       <label for="warehouse">Warehouse</label>
-      <select
-        id="warehouse"
-        name="warehouse"
-        class="dropdown"
-        soho-dropdown
-        soho-busyindicator
-        blockUI="true"
-        displayDelay="0"
-      ></select>
+      <select id="dropScreen" name="warehouse">
+        <option></option>
+        <option *ngFor="let item of arrWarehouse">
+          {{ item }}
+        </option>
+      </select>
     </div>
 
     <div class="two columns" style="float: right; overflow: hidden">
@@ -67,7 +64,7 @@
   <div class="row-padding">
     <div class="nine columns" style="margin-left: 5%">
       <br /><br />
-      <div soho-datagrid="auto" [gridOptions]=""></div>
+      <div soho-datagrid="auto" [gridOptions]="gridOptions"></div>
     </div>
     <div class="two columns" style="float: right; overflow: hidden">
       <br /><br />
