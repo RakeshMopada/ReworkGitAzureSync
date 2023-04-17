@@ -10,6 +10,7 @@ import { SohoDataGridComponent } from "ids-enterprise-ng";
   styleUrls: ["./screen-a-overview.component.css"],
 })
 export class ScreenAOverviewComponent implements OnInit {
+  gridOptions: SohoDataGridOptions;
   isBusy = true;
   usid: string;
   usname: string;
@@ -25,6 +26,97 @@ export class ScreenAOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserId();
+    this.buildGridOptions();
+  }
+
+  private buildGridOptions(): void {
+    this.gridOptions = {
+      selectable: "single",
+      clickToSelect: true,
+      paging: true,
+      rowHeight: "medium",
+      cellNavigation: false,
+      columns: this.buildGridColumns(),
+      editable: true,
+      alternateRowShading: true,
+    };
+  }
+
+  private buildGridColumns(): SohoDataGridColumn[] {
+    return [
+      {
+        width: 50,
+        name: "Item",
+        id: "item",
+        field: "item",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 100,
+        name: "Description",
+        id: "description",
+        field: "description",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Lot Number",
+        id: "lotnum",
+        field: "lotnum",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Status",
+        id: "status",
+        field: "lotnum",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "RW Method",
+        id: "rwmethod",
+        field: "rwmethod",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "OH Qty",
+        id: "ohqty",
+        field: "ohqty",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Assigned Qty",
+        id: "assignedqty",
+        field: "assignedqty",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Allocated Qty",
+        id: "allocatedqty",
+        field: "allocatedqty",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+    ];
   }
 
   faciltyClick(event: any) {
