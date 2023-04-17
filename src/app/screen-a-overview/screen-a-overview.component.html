@@ -95,7 +95,12 @@
   <div class="row-padding">
     <div class="nine columns" style="margin-left: 5%">
       <br /><br />
-      <div #grid soho-datagrid="auto" [gridOptions]="gridOptions"></div>
+      <div
+        #grid
+        soho-datagrid="auto"
+        [dataset]="gridOptions.dataset"
+        [gridOptions]="gridOptions"
+      ></div>
     </div>
     <div class="two columns" style="float: right; overflow: hidden">
       <br /><br />

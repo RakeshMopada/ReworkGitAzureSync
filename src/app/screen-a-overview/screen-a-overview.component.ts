@@ -11,6 +11,7 @@ import { SohoDataGridComponent } from "ids-enterprise-ng";
 })
 export class ScreenAOverviewComponent implements OnInit {
   gridOptions: SohoDataGridOptions;
+  extrwhDataSet: SohoDataSet;
   isBusy = true;
   usid: string;
   usname: string;
@@ -19,6 +20,7 @@ export class ScreenAOverviewComponent implements OnInit {
   arrFACI = [];
   arrFACN = [];
   arrFacilityDesc = [];
+  arrEXTRWH = [];
 
   constructor(private apiService: ScreenAService) {}
   @ViewChild("grid", { static: true })
@@ -33,11 +35,13 @@ export class ScreenAOverviewComponent implements OnInit {
       selectable: "single",
       clickToSelect: true,
       paging: true,
+      filterable: true,
       rowHeight: "medium",
       cellNavigation: false,
       columns: this.buildGridColumns(),
       editable: true,
       alternateRowShading: true,
+      emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
   }
 
@@ -46,8 +50,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "Item",
-        id: "item",
-        field: "item",
+        id: "ITNO",
+        field: "ITNO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -55,8 +59,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 100,
         name: "Description",
-        id: "description",
-        field: "description",
+        id: "ITDS",
+        field: "ITDS",
         align: "center",
         sortable: true,
         searchable: true,
@@ -64,8 +68,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "Lot Number",
-        id: "lotnum",
-        field: "lotnum",
+        id: "BANO",
+        field: "BANO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -73,8 +77,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "Status",
-        id: "status",
-        field: "lotnum",
+        id: "STAS",
+        field: "STAS",
         align: "center",
         sortable: true,
         searchable: true,
@@ -82,8 +86,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "RW Method",
-        id: "rwmethod",
-        field: "rwmethod",
+        id: "METH",
+        field: "METH",
         align: "center",
         sortable: true,
         searchable: true,
@@ -91,8 +95,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "OH Qty",
-        id: "ohqty",
-        field: "ohqty",
+        id: "TRQT",
+        field: "TRQT",
         align: "center",
         sortable: true,
         searchable: true,
@@ -100,8 +104,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "Assigned Qty",
-        id: "assignedqty",
-        field: "assignedqty",
+        id: "TRQA",
+        field: "TRQA",
         align: "center",
         sortable: true,
         searchable: true,
@@ -109,8 +113,8 @@ export class ScreenAOverviewComponent implements OnInit {
       {
         width: 50,
         name: "Allocated Qty",
-        id: "allocatedqty",
-        field: "allocatedqty",
+        id: "ALQT",
+        field: "ALQT",
         align: "center",
         sortable: true,
         searchable: true,
@@ -133,7 +137,32 @@ export class ScreenAOverviewComponent implements OnInit {
       this.usname = newArr["NAME"];
       this.company = newArr["CONO"];
       this.LstUserFaci(this.company);
+      this.loadDataGrid(this.company);
       this.apiService.setCompany(this.company);
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async loadDataGrid(company: any): Promise<void> {
+    try {
+      const temp = await this.apiService.LstEXTRWH(company);
+      console.log(temp);
+      for (let i = 0; i < temp.length; i++) {
+        this.arrEXTRWH.push(temp[i].ITNO);
+        this.arrEXTRWH.push(temp[i].ITDS);
+        this.arrEXTRWH.push(temp[i].BANO);
+        this.arrEXTRWH.push(temp[i].STAS);
+        this.arrEXTRWH.push(temp[i].METH);
+        this.arrEXTRWH.push(temp[i].TRQT);
+        this.arrEXTRWH.push(temp[i].TRQA);
+        this.arrEXTRWH.push(temp[i].ALQT);
+        this.gridOptions.dataset = this.arrEXTRWH;
+      }
+      console.log("Array EXTRWh");
+      console.log(this.arrEXTRWH);
+      console.log("Data set");
+      console.log(this.gridOptions.dataset);
     } catch (err) {
       throw err;
     }

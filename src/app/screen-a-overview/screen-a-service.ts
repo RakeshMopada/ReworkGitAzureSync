@@ -17,6 +17,17 @@ interface IFacility {
   FACN: string;
 }
 
+interface ILstEXTRWH {
+  ITNO: string;
+  ITDS: string;
+  BANO: string;
+  STAS: string;
+  METH: string;
+  TRQT: string;
+  TRQA: string;
+  ALQT: string;
+}
+
 @Injectable({
   providedIn: "root",
 })
@@ -52,6 +63,13 @@ export class ScreenAService {
     const parameters: IMIParameter[] = [{ name: "CONO", value: company }];
     return this.miService
       .executeList<IFacility>("CRS008MI", "ListFacility", parameters)
+      .toPromise();
+  }
+
+  public LstEXTRWH(company: any): Promise<ILstEXTRWH[]> {
+    const parameters: IMIParameter[] = [{ name: "CONO", value: company }];
+    return this.miService
+      .executeList<ILstEXTRWH>("EXT001MI", "LstRWH", parameters)
       .toPromise();
   }
 }
