@@ -9,6 +9,7 @@ import { ScreenAService } from "../screen-a-overview/screen-a-service";
   styleUrls: ["./screen-b-lot.component.css"],
 })
 export class ScreenBLotComponent implements OnInit {
+  gridOptions: SohoDataGridOptions;
   isBusy = true;
   company: string;
   facility: string;
@@ -21,8 +22,89 @@ export class ScreenBLotComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log("inside screen b ts");
     this.getDetailsFromScreenA();
+    this.buildGridOptions();
+  }
+
+  private buildGridOptions(): void {
+    this.gridOptions = {
+      selectable: "single",
+      clickToSelect: true,
+      paging: true,
+      rowHeight: "medium",
+      cellNavigation: false,
+      columns: this.buildGridColumns(),
+      editable: true,
+      alternateRowShading: true,
+    };
+  }
+
+  private buildGridColumns(): SohoDataGridColumn[] {
+    return [
+      {
+        width: 50,
+        name: "Warehouse",
+        id: "warehouse",
+        field: "warehouse",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Item",
+        id: "item",
+        field: "item",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 100,
+        name: "Description",
+        id: "description",
+        field: "description",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Lot Number",
+        id: "lotnum",
+        field: "lotnum",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Status",
+        id: "status",
+        field: "lotnum",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Qty Base UM",
+        id: "qtybaseum",
+        field: "qtybaseum",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+      {
+        width: 50,
+        name: "Qty KG",
+        id: "qtykg",
+        field: "qtykg",
+        align: "center",
+        sortable: true,
+        searchable: true,
+      },
+    ];
   }
 
   getDetailsFromScreenA() {
