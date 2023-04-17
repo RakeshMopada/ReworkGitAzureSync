@@ -20,10 +20,9 @@ export class ScreenAOverviewComponent implements OnInit {
   arrFACN = [];
   arrFacilityDesc = [];
 
+  constructor(private apiService: ScreenAService) {}
   @ViewChild("grid", { static: true })
   private grid: SohoDataGridComponent;
-  constructor(private apiService: ScreenAService) {}
-
   ngOnInit(): void {
     this.getUserId();
     this.buildGridOptions();
