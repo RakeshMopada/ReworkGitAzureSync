@@ -51,7 +51,6 @@ export class ScreenAOverviewComponent implements OnInit {
       cellNavigation: false,
       columns: this.buildGridColumns(),
       editable: true,
-      alternateRowShading: true,
       dataset: [],
       emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
@@ -67,6 +66,7 @@ export class ScreenAOverviewComponent implements OnInit {
         align: "center",
         sortable: true,
         searchable: true,
+        filterType: "text",
       },
       {
         width: 100,
