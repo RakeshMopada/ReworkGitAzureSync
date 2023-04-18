@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 import { SohoDataGridComponent } from "ids-enterprise-ng";
+import { ScreenDService } from "./screen-d-service";
 
 @Component({
   selector: "app-screen-d-assignment",
@@ -8,23 +9,27 @@ import { SohoDataGridComponent } from "ids-enterprise-ng";
 })
 export class ScreenDAssignmentComponent implements OnInit {
   gridOptions: SohoDataGridOptions;
-  @ViewChild("grid", { static: true })
+  @ViewChild("placeholderDataGrid") datagrid: SohoDataGridComponent;
   private grid: SohoDataGridComponent;
-  constructor() {}
+  isBusy = true;
+  constructor(private apiService: ScreenDService) {}
 
   ngOnInit(): void {
     this.buildGridOptions();
+    this.loadDataGrid();
   }
   private buildGridOptions(): void {
     this.gridOptions = {
       selectable: "single",
       clickToSelect: true,
       paging: true,
+      filterable: true,
       rowHeight: "medium",
       cellNavigation: false,
       columns: this.buildGridColumns(),
       editable: true,
-      alternateRowShading: true,
+      dataset: [],
+      emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
   }
 
@@ -33,8 +38,8 @@ export class ScreenDAssignmentComponent implements OnInit {
       {
         width: 50,
         name: "Product",
-        id: "product",
-        field: "product",
+        id: "PRNO",
+        field: "PRNO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -51,8 +56,8 @@ export class ScreenDAssignmentComponent implements OnInit {
       {
         width: 50,
         name: "Assigned Qty",
-        id: "assignedqty",
-        field: "assignedqty",
+        id: "TRQA",
+        field: "TRQA",
         align: "center",
         sortable: true,
         searchable: true,
@@ -60,12 +65,23 @@ export class ScreenDAssignmentComponent implements OnInit {
       {
         width: 50,
         name: "Allocated Qty",
-        id: "allocatedqty",
-        field: "allocatedqty",
+        id: "ALQT",
+        field: "ALQT",
         align: "center",
         sortable: true,
         searchable: true,
       },
     ];
+  }
+  async loadDataGrid(): Promise<void> {
+    try {
+      const temp = await this.apiService.LstEXTRWA();
+      this.datagrid
+        ? (this.datagrid.dataset = temp)
+        : (this.gridOptions.dataset = temp);
+      this.isBusy = false;
+    } catch (err) {
+      throw err;
+    }
   }
 }

@@ -14,8 +14,7 @@ export class ScreenBLotComponent implements OnInit {
   company: string;
   facility: string;
   arrWarehouse = [];
-  @ViewChild("grid", { static: true })
-  private grid: SohoDataGridComponent;
+  @ViewChild("placeholderDataGrid") datagrid: SohoDataGridComponent;
   constructor(
     private apiService: ScreenBService,
     private screenAService: ScreenAService
@@ -31,11 +30,13 @@ export class ScreenBLotComponent implements OnInit {
       selectable: "single",
       clickToSelect: true,
       paging: true,
+      filterable: true,
       rowHeight: "medium",
       cellNavigation: false,
       columns: this.buildGridColumns(),
       editable: true,
-      alternateRowShading: true,
+      dataset: [],
+      emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
   }
 
@@ -44,8 +45,8 @@ export class ScreenBLotComponent implements OnInit {
       {
         width: 50,
         name: "Warehouse",
-        id: "warehouse",
-        field: "warehouse",
+        id: "MLWHLO",
+        field: "MLWHLO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -53,8 +54,8 @@ export class ScreenBLotComponent implements OnInit {
       {
         width: 50,
         name: "Item",
-        id: "item",
-        field: "item",
+        id: "MLITNO",
+        field: "MLITNO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -62,8 +63,8 @@ export class ScreenBLotComponent implements OnInit {
       {
         width: 100,
         name: "Description",
-        id: "description",
-        field: "description",
+        id: "MMITDS",
+        field: "MMITDS",
         align: "center",
         sortable: true,
         searchable: true,
@@ -71,17 +72,8 @@ export class ScreenBLotComponent implements OnInit {
       {
         width: 50,
         name: "Lot Number",
-        id: "lotnum",
-        field: "lotnum",
-        align: "center",
-        sortable: true,
-        searchable: true,
-      },
-      {
-        width: 50,
-        name: "Status",
-        id: "status",
-        field: "lotnum",
+        id: "MLBANO",
+        field: "MLBANO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -113,8 +105,19 @@ export class ScreenBLotComponent implements OnInit {
     console.log("CMP frm A: " + this.company);
     console.log("FACILITY frm A: " + this.facility);
     this.loadWarehouses();
+    this.loadDataGrid(this.facility);
   }
-
+  async loadDataGrid(company: any): Promise<void> {
+    try {
+      const temp = await this.apiService.LstEXT11();
+      this.datagrid
+        ? (this.datagrid.dataset = temp)
+        : (this.gridOptions.dataset = temp);
+      this.isBusy = false;
+    } catch (err) {
+      throw err;
+    }
+  }
   async loadWarehouses(): Promise<void> {
     try {
       const temp = await this.apiService.getWarehouses(

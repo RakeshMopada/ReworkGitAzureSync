@@ -15,6 +15,15 @@ interface IFacility {
   FACI: string;
   FACN: string;
 }
+
+interface ILstEXT11 {
+  MLFACI: string;
+  MLWHLO: string;
+  MLITNO: string;
+  MMITDS: string;
+  MLBANO: string;
+  MLSTQT: string;
+}
 @Injectable({
   providedIn: "root",
 })
@@ -37,6 +46,12 @@ export class ScreenBService {
     ];
     return this.miService
       .executeList<IUserId>("MMS005MI", "LstWarehouses", parameters)
+      .toPromise();
+  }
+  public LstEXT11(): Promise<ILstEXT11[]> {
+    const parameters: IMIParameter[] = [{ name: "MLFACI", value: "NN1" }];
+    return this.miService
+      .executeList<ILstEXT11>("CMS100MI", "Lst_EXT11_01", parameters)
       .toPromise();
   }
 }

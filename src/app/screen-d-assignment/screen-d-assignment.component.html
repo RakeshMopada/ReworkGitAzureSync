@@ -68,7 +68,11 @@
   <div class="row-padding">
     <div class="nine columns" style="margin-left: 5%; width: 70%">
       <br /><br />
-      <div soho-datagrid="auto" [gridOptions]="gridOptions"></div>
+      <div
+        soho-datagrid="auto"
+        #placeholderDataGrid
+        [gridOptions]="gridOptions"
+      ></div>
     </div>
   </div>
   <div class="two columns" style="float: right; overflow: hidden">

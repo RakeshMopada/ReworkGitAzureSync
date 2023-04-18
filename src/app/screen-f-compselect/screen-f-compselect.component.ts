@@ -8,12 +8,13 @@ import { SohoDataGridComponent } from "ids-enterprise-ng";
 })
 export class ScreenFCompselectComponent implements OnInit {
   gridOptions: SohoDataGridOptions;
-  @ViewChild("grid", { static: true })
+  @ViewChild("placeholderDataGrid") datagrid: SohoDataGridComponent;
   private grid: SohoDataGridComponent;
   constructor() {}
 
   ngOnInit(): void {
     this.buildGridOptions();
+    this.loadDataGrid();
   }
   private buildGridOptions(): void {
     this.gridOptions = {
@@ -85,5 +86,16 @@ export class ScreenFCompselectComponent implements OnInit {
         searchable: true,
       },
     ];
+  }
+  async loadDataGrid(): Promise<void> {
+    try {
+      // const temp = await this.apiService.LstEXT1104();
+      // this.datagrid
+      //   ? (this.datagrid.dataset = temp)
+      //   : (this.gridOptions.dataset = temp);
+      // this.isBusy = false;
+    } catch (err) {
+      throw err;
+    }
   }
 }

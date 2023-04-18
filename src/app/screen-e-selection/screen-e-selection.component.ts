@@ -11,13 +11,13 @@ export class ScreenESelectionComponent implements OnInit {
   gridOptions: SohoDataGridOptions;
   isBusy = true;
   arrProductGroup = [];
-  @ViewChild("grid", { static: true })
-  private grid: SohoDataGridComponent;
+  @ViewChild("placeholderDataGrid") datagrid: SohoDataGridComponent;
   constructor(private apiService: ScreenEService) {}
 
   ngOnInit(): void {
     this.loadProductGroup();
     this.buildGridOptions();
+    this.loadDataGrid();
   }
 
   private buildGridOptions(): void {
@@ -25,11 +25,14 @@ export class ScreenESelectionComponent implements OnInit {
       selectable: "single",
       clickToSelect: true,
       paging: true,
+      pagesize: 10,
+      filterable: true,
       rowHeight: "medium",
       cellNavigation: false,
       columns: this.buildGridColumns(),
       editable: true,
-      alternateRowShading: true,
+      dataset: [],
+      emptyMessage: { title: "No records available", icon: "empty-no-data" },
     };
   }
 
@@ -38,8 +41,8 @@ export class ScreenESelectionComponent implements OnInit {
       {
         width: 50,
         name: "Product",
-        id: "product",
-        field: "product",
+        id: "PMPRNO",
+        field: "PMPRNO",
         align: "center",
         sortable: true,
         searchable: true,
@@ -47,8 +50,8 @@ export class ScreenESelectionComponent implements OnInit {
       {
         width: 100,
         name: "Description",
-        id: "description",
-        field: "description",
+        id: "MMITDS",
+        field: "MMITDS",
         align: "center",
         sortable: true,
         searchable: true,
@@ -74,6 +77,17 @@ export class ScreenESelectionComponent implements OnInit {
         this.arrProductGroup.push(tempString);
       }
       console.log(this.arrProductGroup);
+      this.isBusy = false;
+    } catch (err) {
+      throw err;
+    }
+  }
+  async loadDataGrid(): Promise<void> {
+    try {
+      const temp = await this.apiService.LstEXT1104();
+      this.datagrid
+        ? (this.datagrid.dataset = temp)
+        : (this.gridOptions.dataset = temp);
       this.isBusy = false;
     } catch (err) {
       throw err;

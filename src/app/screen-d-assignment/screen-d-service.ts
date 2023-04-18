@@ -15,19 +15,23 @@ interface IProductGroup {
   ITCL: string;
   TX40: string;
 }
-interface ILstEXT1104 {
-  PMFACI: string;
-  PMMTNO: string;
-  PMPRNO: string;
-  PMSTRT: string;
-  MMITDS: string;
-  V_LOG3: string;
-  VRVRSN: string;
+interface ILstEXTRWA {
+  CONO: string;
+  FACI: string;
+  ITNO: string;
+  BANO: string;
+  PRNO: string;
+  STRT: string;
+  VRSN: string;
+  TRQA: string;
+  ALQT: string;
+  TRQP: string;
+  NOTE: string;
 }
 @Injectable({
   providedIn: "root",
 })
-export class ScreenEService {
+export class ScreenDService {
   private userContext: IUserContext;
 
   constructor(
@@ -45,13 +49,15 @@ export class ScreenEService {
       .executeList<IProductGroup>("CRS035MI", "LstProductGroup", parameters)
       .toPromise();
   }
-  public LstEXT1104(): Promise<ILstEXT1104[]> {
+  public LstEXTRWA(): Promise<ILstEXTRWA[]> {
     const parameters: IMIParameter[] = [
-      { name: "PMFACI", value: "NN1" },
-      { name: "PMMTNO", value: "10004156" },
+      { name: "CONO", value: "100" },
+      { name: "FACI", value: "NN1" },
+      { name: "ITNO", value: "10003473" },
+      { name: "BANO", value: "RW0000054535-1" },
     ];
     return this.miService
-      .executeList<ILstEXT1104>("CMS100MI", "Lst_EXT11_04", parameters)
+      .executeList<ILstEXTRWA>("EXT002MI", "LstRWA", parameters)
       .toPromise();
   }
 }
